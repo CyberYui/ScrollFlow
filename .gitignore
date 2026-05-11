@@ -1,5 +1,19 @@
+# macOS
 .DS_Store
+
+# Xcode build outputs
 build/
 DerivedData/
+*.app
+*.dSYM
+*.ipa
+*.xcarchive
+
+# Xcode user data
 *.xcuserstate
 xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Swift Package Manager
+.swiftpm/
+.build/
