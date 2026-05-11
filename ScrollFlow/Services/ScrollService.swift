@@ -11,7 +11,7 @@ final class ScrollService {
     private var currentSpeed: Double = AppSettings.default.scrollSpeed
 
     func start(speed: Double) {
-        currentSpeed = speed
+        currentSpeed = clamped(speed)
         stop()
 
         let timer = Timer(timeInterval: Constants.tickInterval, repeats: true) { [weak self] _ in
@@ -23,7 +23,7 @@ final class ScrollService {
     }
 
     func update(speed: Double) {
-        currentSpeed = speed
+        currentSpeed = clamped(speed)
     }
 
     func stop() {
@@ -32,7 +32,7 @@ final class ScrollService {
     }
 
     private func emitScrollTick() {
-        let delta = max(1, Int32(currentSpeed * Constants.pixelsPerSpeedUnit))
+        let delta = Int32(currentSpeed * Constants.pixelsPerSpeedUnit)
         guard let event = CGEvent(
             scrollWheelEvent2Source: nil,
             units: .pixel,
@@ -45,5 +45,9 @@ final class ScrollService {
         }
 
         event.post(tap: .cghidEventTap)
+    }
+
+    private func clamped(_ speed: Double) -> Double {
+        min(max(speed, AppSettings.minimumScrollSpeed), AppSettings.maximumScrollSpeed)
     }
 }

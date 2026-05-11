@@ -22,6 +22,10 @@ final class GlobalHotkeyService {
     private var eventHandlerRef: EventHandlerRef?
     private var handler: (() -> Void)?
 
+    deinit {
+        unregister()
+    }
+
     func register(_ hotkey: Hotkey, handler: @escaping () -> Void) throws {
         self.handler = handler
         installHandlerIfNeeded()

@@ -51,9 +51,14 @@ struct Hotkey: Codable, Equatable {
 
     static func displayKey(for event: NSEvent) -> String? {
         if let characters = event.charactersIgnoringModifiers?
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-            .uppercased(),
+            .trimmingCharacters(in: .whitespacesAndNewlines),
            !characters.isEmpty {
+            if characters.count == 1,
+               let scalar = characters.unicodeScalars.first,
+               CharacterSet.letters.contains(scalar) {
+                return characters.uppercased()
+            }
+
             return characters
         }
 
