@@ -8,7 +8,7 @@ enum LaunchAtLoginServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .unsupportedSystem:
-            return "当前系统版本不支持现代开机自启接口。"
+            return "当前系统版本不支持开机自启功能（需要 macOS 13.0 或更高版本）。"
         case let .operationFailed(message):
             return "开机自启设置失败：\(message)"
         }

@@ -32,7 +32,7 @@ Built with Swift + SwiftUI/AppKit, running locally only with no networking or an
 
 ## 本地运行 | Run Locally
 
-1. 在 macOS 上使用 Xcode 16+ 打开 `/home/runner/work/ScrollFlow/ScrollFlow/ScrollFlow.xcodeproj`
+1. 在 macOS 上使用 Xcode 16+ 打开仓库根目录下的 `ScrollFlow.xcodeproj`
 2. 选择共享 Scheme：`ScrollFlow`
 3. 首次运行后，在系统设置中授予“辅助功能”权限
 4. 在设置页中配置开机自启、快捷键和滚动速度
