@@ -13,12 +13,12 @@ struct HotkeyRecorderView: View {
             Button {
                 isRecording ? stopRecording() : startRecording()
             } label: {
-                Text(isRecording ? "请按下新的组合键…" : HotkeyFormatter.string(from: currentHotkey))
+                Text(isRecording ? L10n.recorderPrompt : HotkeyFormatter.string(from: currentHotkey))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .buttonStyle(.borderedProminent)
 
-            Text(isRecording ? "按下带 Command / Option / Control / Shift 的组合键，按 Esc 取消。" : "点击按钮后录制新的全局快捷键。")
+            Text(isRecording ? L10n.recorderInstructionRecording : L10n.recorderInstructionIdle)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

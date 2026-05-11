@@ -2,6 +2,11 @@ import ApplicationServices
 import Foundation
 
 final class ScrollService {
+    private enum Constants {
+        static let tickInterval = 0.05
+        static let pixelsPerSpeedUnit = 8.0
+    }
+
     private var timer: Timer?
     private var currentSpeed: Double = AppSettings.default.scrollSpeed
 
@@ -9,7 +14,7 @@ final class ScrollService {
         currentSpeed = speed
         stop()
 
-        let timer = Timer(timeInterval: 0.05, repeats: true) { [weak self] _ in
+        let timer = Timer(timeInterval: Constants.tickInterval, repeats: true) { [weak self] _ in
             self?.emitScrollTick()
         }
 
@@ -27,7 +32,7 @@ final class ScrollService {
     }
 
     private func emitScrollTick() {
-        let delta = max(1, Int32(currentSpeed * 8))
+        let delta = max(1, Int32(currentSpeed * Constants.pixelsPerSpeedUnit))
         guard let event = CGEvent(
             scrollWheelEvent2Source: nil,
             units: .pixel,

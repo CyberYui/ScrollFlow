@@ -6,20 +6,20 @@ struct MenuBarContentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Label(
-                appModel.isAutoScrolling ? "自动滚动中" : "已暂停",
+                appModel.isAutoScrolling ? L10n.menuRunning : L10n.menuPaused,
                 systemImage: appModel.isAutoScrolling ? "pause.circle.fill" : "play.circle.fill"
             )
             .font(.headline)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("滚动速度：\(appModel.speedDescription)")
-                Text("全局快捷键：\(HotkeyFormatter.string(from: appModel.hotkey))")
+                Text(L10n.menuSpeed(appModel.speedDescription))
+                Text(L10n.menuHotkey(HotkeyFormatter.string(from: appModel.hotkey)))
                     .foregroundStyle(.secondary)
             }
             .font(.subheadline)
 
             if !appModel.accessibilityAuthorized {
-                Label("需授予辅助功能权限后才能滚动其他应用内容。", systemImage: "hand.raised.fill")
+                Label(L10n.menuPermissionHint, systemImage: "hand.raised.fill")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -33,17 +33,17 @@ struct MenuBarContentView: View {
 
             Divider()
 
-            Button(appModel.isAutoScrolling ? "暂停自动滚动" : "开启自动滚动") {
+            Button(appModel.isAutoScrolling ? L10n.menuPauseButton : L10n.menuStartButton) {
                 appModel.toggleAutoScroll()
             }
 
             SettingsLink {
-                Label("设置…", systemImage: "gearshape")
+                Label(L10n.menuSettingsButton, systemImage: "gearshape")
             }
 
             Divider()
 
-            Button("退出 ScrollFlow") {
+            Button(L10n.menuQuitButton) {
                 NSApplication.shared.terminate(nil)
             }
         }

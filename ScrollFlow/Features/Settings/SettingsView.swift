@@ -5,9 +5,9 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
-            Section("基础设置") {
+            Section(L10n.settingsSectionGeneral) {
                 Toggle(
-                    "开机自启",
+                    L10n.settingsLaunchAtLogin,
                     isOn: Binding(
                         get: { appModel.launchAtLoginEnabled },
                         set: { appModel.updateLaunchAtLogin($0) }
@@ -16,7 +16,7 @@ struct SettingsView: View {
 
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Text("滚动速度")
+                        Text(L10n.settingsSpeedTitle)
                         Spacer()
                         Text(appModel.speedDescription)
                             .foregroundStyle(.secondary)
@@ -27,37 +27,37 @@ struct SettingsView: View {
                             get: { appModel.scrollSpeed },
                             set: { appModel.updateScrollSpeed($0) }
                         ),
-                        in: 1 ... 12,
+                        in: AppSettings.minimumScrollSpeed ... AppSettings.maximumScrollSpeed,
                         step: 1
                     )
                 }
             }
 
-            Section("全局快捷键") {
+            Section(L10n.settingsSectionHotkey) {
                 HotkeyRecorderView(currentHotkey: appModel.hotkey) { newHotkey in
                     appModel.updateHotkey(newHotkey)
                 }
 
-                Text("设置后可在任意应用内一键开启 / 暂停自动滚动。")
+                Text(L10n.settingsHotkeyHint)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
 
-            Section("权限") {
+            Section(L10n.settingsSectionPermissions) {
                 HStack(alignment: .top, spacing: 10) {
                     Image(systemName: appModel.accessibilityAuthorized ? "checkmark.shield.fill" : "hand.raised.fill")
                         .foregroundStyle(appModel.accessibilityAuthorized ? .green : .orange)
 
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(appModel.accessibilityAuthorized ? "辅助功能权限已就绪" : "需要辅助功能权限")
+                        Text(appModel.accessibilityAuthorized ? L10n.settingsPermissionReady : L10n.settingsPermissionNeeded)
                             .font(.headline)
-                        Text("ScrollFlow 仅在本机运行。为了向系统发送滚动事件，需要你在系统设置中授予辅助功能权限。")
+                        Text(L10n.settingsPermissionDescription)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
                 }
 
-                Button("请求辅助功能权限") {
+                Button(L10n.settingsRequestPermission) {
                     appModel.requestAccessibilityPermission()
                 }
             }

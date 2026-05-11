@@ -44,7 +44,7 @@ final class AppModel: ObservableObject {
     }
 
     var speedDescription: String {
-        String(format: "%.0f / 12", scrollSpeed)
+        L10n.speedDescription(current: scrollSpeed)
     }
 
     func toggleAutoScroll() {
@@ -54,7 +54,7 @@ final class AppModel: ObservableObject {
     func startAutoScroll() {
         guard accessibilityPermissionService.isTrusted(prompt: false) else {
             requestAccessibilityPermission()
-            lastErrorMessage = "需要先授予“辅助功能”权限，ScrollFlow 才能向系统发送滚动事件。"
+            lastErrorMessage = L10n.appPermissionRequired
             return
         }
 

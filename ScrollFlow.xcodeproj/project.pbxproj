@@ -20,6 +20,7 @@ A10000000000000000000069 /* MenuBarContentView.swift in Sources */ = {isa = PBXB
 A1000000000000000000006A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002A /* SettingsView.swift */; };
 A1000000000000000000006B /* HotkeyRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002B /* HotkeyRecorderView.swift */; };
 A1000000000000000000006C /* HotkeyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002C /* HotkeyFormatter.swift */; };
+		A10000000000000000000072 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000033 /* L10n.swift */; };
 A1000000000000000000006D /* HotkeyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002D /* HotkeyFormatterTests.swift */; };
 A1000000000000000000006E /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002E /* SettingsStoreTests.swift */; };
 A1000000000000000000006F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002F /* XCTest.framework */; };
@@ -55,6 +56,7 @@ A1000000000000000000002F /* XCTest.framework */ = {isa = PBXFileReference; lastK
 A10000000000000000000030 /* ScrollFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 A10000000000000000000031 /* ScrollFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 A10000000000000000000032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000000000000000000033 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,11 +166,12 @@ A1000000000000000000000D /* Settings */,
 path = Features;
 sourceTree = "<group>";
 };
-A1000000000000000000000B /* Utilities */ = {
-isa = PBXGroup;
-children = (
-A1000000000000000000002C /* HotkeyFormatter.swift */,
-);
+		A1000000000000000000000B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000033 /* L10n.swift */,
+				A1000000000000000000002C /* HotkeyFormatter.swift */,
+			);
 path = Utilities;
 sourceTree = "<group>";
 };
@@ -299,9 +302,10 @@ A10000000000000000000067 /* LaunchAtLoginService.swift in Sources */,
 A10000000000000000000068 /* AccessibilityPermissionService.swift in Sources */,
 A10000000000000000000069 /* MenuBarContentView.swift in Sources */,
 A1000000000000000000006A /* SettingsView.swift in Sources */,
-A1000000000000000000006B /* HotkeyRecorderView.swift in Sources */,
-A1000000000000000000006C /* HotkeyFormatter.swift in Sources */,
-);
+				A1000000000000000000006B /* HotkeyRecorderView.swift in Sources */,
+				A1000000000000000000006C /* HotkeyFormatter.swift in Sources */,
+				A10000000000000000000072 /* L10n.swift in Sources */,
+			);
 runOnlyForDeploymentPostprocessing = 0;
 };
 A10000000000000000000053 /* Sources */ = {

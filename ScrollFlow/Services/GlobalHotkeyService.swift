@@ -7,12 +7,17 @@ enum GlobalHotkeyServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case let .registrationFailed(status):
-            return "全局快捷键注册失败（OSStatus: \(status)）。"
+            return L10n.hotkeyRegistrationFailed(status: status)
         }
     }
 }
 
 final class GlobalHotkeyService {
+    private enum Constants {
+        static let hotKeySignature = "SCFL"
+        static let hotKeyID: UInt32 = 1
+    }
+
     private var hotKeyRef: EventHotKeyRef?
     private var eventHandlerRef: EventHandlerRef?
     private var handler: (() -> Void)?
@@ -26,7 +31,10 @@ final class GlobalHotkeyService {
             self.hotKeyRef = nil
         }
 
-        var hotKeyID = EventHotKeyID(signature: fourCharCode(from: "SCFL"), id: 1)
+        var hotKeyID = EventHotKeyID(
+            signature: fourCharCode(from: Constants.hotKeySignature),
+            id: Constants.hotKeyID
+        )
         let status = RegisterEventHotKey(
             hotkey.keyCode,
             hotkey.modifiers,
