@@ -97,7 +97,7 @@ final class GlobalHotkeyService {
 
     private func fourCharCode(from string: String) -> OSType {
         precondition(string.utf8.count == 4 && string.unicodeScalars.allSatisfy { $0.isASCII })
-        string.utf8.reduce(0) { partialResult, character in
+        return string.utf8.reduce(0) { partialResult, character in
             (partialResult << 8) + OSType(character)
         }
     }

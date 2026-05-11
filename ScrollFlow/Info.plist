@@ -26,5 +26,7 @@
 <true/>
 <key>NSPrincipalClass</key>
 <string>NSApplication</string>
+<key>NSAccessibilityUsageDescription</key>
+<string>ScrollFlow needs accessibility permission to send scroll events to other applications.</string>
 </dict>
 </plist>
