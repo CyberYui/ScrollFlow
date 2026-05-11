@@ -9,9 +9,11 @@ final class ScrollService {
 
     private var timer: Timer?
     private var currentSpeed: Double = AppSettings.default.scrollSpeed
+    private var accumulatedDelta = 0.0
 
     func start(speed: Double) {
         currentSpeed = clamped(speed)
+        accumulatedDelta = 0
         stop()
 
         let timer = Timer(timeInterval: Constants.tickInterval, repeats: true) { [weak self] _ in
@@ -29,10 +31,17 @@ final class ScrollService {
     func stop() {
         timer?.invalidate()
         timer = nil
+        accumulatedDelta = 0
     }
 
     private func emitScrollTick() {
-        let delta = Int32(currentSpeed * Constants.pixelsPerSpeedUnit)
+        accumulatedDelta += currentSpeed * Constants.pixelsPerSpeedUnit
+        let delta = Int32(accumulatedDelta.rounded(.towardZero))
+        guard delta != 0 else {
+            return
+        }
+
+        accumulatedDelta -= Double(delta)
         guard let event = CGEvent(
             scrollWheelEvent2Source: nil,
             units: .pixel,

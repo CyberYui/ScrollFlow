@@ -8,9 +8,9 @@ struct Hotkey: Codable, Equatable {
     var displayKey: String
 
     static let defaultValue = Hotkey(
-        keyCode: UInt32(kVK_ANSI_S),
+        keyCode: UInt32(kVK_Space),
         modifiers: UInt32(optionKey | cmdKey),
-        displayKey: "S"
+        displayKey: "Space"
     )
 
     static func from(event: NSEvent) -> Hotkey? {
