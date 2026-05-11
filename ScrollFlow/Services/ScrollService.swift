@@ -13,7 +13,7 @@ final class ScrollService {
 
     func start(speed: Double) {
         currentSpeed = clamped(speed)
-        accumulatedDelta = 0
+        accumulatedDelta = 0.0
         stop()
 
         let timer = Timer(timeInterval: Constants.tickInterval, repeats: true) { [weak self] _ in
@@ -31,7 +31,7 @@ final class ScrollService {
     func stop() {
         timer?.invalidate()
         timer = nil
-        accumulatedDelta = 0
+        accumulatedDelta = 0.0
     }
 
     private func emitScrollTick() {
