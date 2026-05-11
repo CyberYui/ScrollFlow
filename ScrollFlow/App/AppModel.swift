@@ -30,10 +30,11 @@ final class AppModel: ObservableObject {
 
         let settings = settingsStore.load()
         scrollSpeed = settings.scrollSpeed
-        launchAtLoginEnabled = settings.launchAtLoginEnabled
+        launchAtLoginEnabled = launchAtLoginService.isEnabled
         hotkey = settings.hotkey
         accessibilityAuthorized = accessibilityPermissionService.isTrusted(prompt: false)
 
+        persistSettings()
         registerHotkey(hotkey)
     }
 

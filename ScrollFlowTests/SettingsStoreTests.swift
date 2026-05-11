@@ -1,3 +1,4 @@
+import Carbon.HIToolbox
 import Foundation
 import XCTest
 @testable import ScrollFlow
