@@ -3,6 +3,8 @@
 Lightweight Auto-Scroll for macOS  
 一款极简轻量的 macOS 自动滚动菜单栏小工具
 
+**项目状态：暂不开源，1年后正式上架 Mac App Store（预计定价 ¥7）**
+
 ## 简介 | About
 
 ScrollFlow 专为 macOS 设计，主打轻量、纯净、后台静默运行。  
@@ -45,8 +47,14 @@ Built with Swift + SwiftUI/AppKit, running locally only with no networking or an
 
 ## 开发状态 | Status
 
-🚧 基础骨架已搭建，可继续增量迭代。  
-暂不提供安装包，请在 macOS + Xcode 环境中自行构建。
+✅ MVP 开发完成，已隐藏源代码，计划未来正式上架 Mac App Store。  
+不提供源码和安装包，敬请期待正式版。
+
+## 开发计划 | Roadmap
+
+- ✅ 基础功能开发完成（MVP）
+- 📋 App Store 上架筹备中
+- 📋 未来可能的功能扩展
 
 ## 开源协议 | License
 
