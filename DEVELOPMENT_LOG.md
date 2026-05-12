@@ -98,3 +98,23 @@ AppModel (状态中心)
 - MainActor 保证线程安全
 - 错误处理完善
 - 本地化支持完整
+
+## 2026-05-12 (下午)
+
+### 本地开发环境清理
+- 清理 Xcode 构建缓存 (xcodebuild clean)
+- 删除 ~/Library/Developer/Xcode/DerivedData/ScrollFlow*
+- 清理调试符号文件 (*.dSYM)
+- 清理临时文件 (*.log, *.tmp)
+- 清理 macOS 系统文件 (.DS_Store)
+- 移除图标临时文件 (Icon?)
+
+### GitHub 仓库安全措施
+- 更新 .gitignore 隐藏所有源代码
+- 从 Git 历史中移除 21 个源文件
+- 仅保留 README、LICENSE、DEVELOPMENT_LOG.md
+- 防止他人克隆时获取源码
+
+### 准备后续开发
+- 清理完成后本地继续开发
+- 只通过 README 和 DEVELOPMENT_LOG.md 同步进度
