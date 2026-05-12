@@ -17,3 +17,21 @@ xcuserdata/
 # Swift Package Manager
 .swiftpm/
 .build/
+
+# Hide all project files except necessary git files
+# Keep only:
+# - .git/
+# - .gitignore
+# - LICENSE (if exists)
+# - README.md (if exists)
+# - *.md documentation files
+
+# Hide the entire ScrollFlow folder
+ScrollFlow/
+ScrollFlowIcon.png
+
+# Hide all other source code and project files
+!*.md
+!LICENSE
+!.gitignore
+!.git/
