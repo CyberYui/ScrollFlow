@@ -30,6 +30,10 @@ xcuserdata/
 ScrollFlow/
 ScrollFlowIcon.png
 
+# Hide Xcode project files
+ScrollFlow.xcodeproj/
+ScrollFlowTests/
+
 # Hide all other source code and project files
 !*.md
 !LICENSE
