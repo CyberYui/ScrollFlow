@@ -118,3 +118,11 @@ AppModel (状态中心)
 ### 准备后续开发
 - 清理完成后本地继续开发
 - 只通过 README 和 DEVELOPMENT_LOG.md 同步进度
+
+## 2026-10-10
+
+### 仓库维护（Hermes 协助）
+- 完善 .gitignore：新增忽略 `.claude/`、`AGENTS.md`、`CLAUDE.md`、`.gitnexus/` 等 AI 辅助工具本地文件
+- 清理本地 `.claude/skills/`（6 个 gitnexus 无关技能文件，属误带入）
+- 保留 `.claude/settings.local.json`（项目相关权限配置）
+- 确认本地源码与远程文档同步正常，源码保护策略不变
