@@ -1,6 +1,5 @@
-# ScrollFlow
+# ScrollFlow — Lightweight Auto-Scroll for macOS
 
-Lightweight Auto-Scroll for macOS
 一款极简轻量的 macOS 自动滚动菜单栏小工具
 
 A lightweight native macOS menu bar app for auto-scrolling web pages, novels, long documents and feeds.
